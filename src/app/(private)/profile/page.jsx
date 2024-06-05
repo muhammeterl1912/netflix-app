@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
+import CardContainer from "./CardContainer";
+
+export const metadata = {
+  title: "Profile",
+  description: "this is profile page",
+};
 
 const Profile = () => {
   return (
-    <div>Profile</div>
-  )
-}
+    <div className="flex items-center justify-center mt-20">
+      <div>
+        <h1 className="text-3xl md:text-6xl text-white text-center">
+          Who's watching?
+        </h1>
+        <CardContainer />
+      </div>
+    </div>
+  );
+};
 
-export default Profile
+export default Profile;

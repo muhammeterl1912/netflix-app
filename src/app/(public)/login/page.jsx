@@ -9,7 +9,7 @@ const Register = () => {
     email: "",
     password: "",
   });
-  const { signIn, signUpProvider } = useFirebaseRequests();
+  const { signIn, signUpProvider,forgotPassword } = useFirebaseRequests();
 
   const handleChange = (e) =>
     setInfo({ ...info, [e.target.name]: e.target.value });

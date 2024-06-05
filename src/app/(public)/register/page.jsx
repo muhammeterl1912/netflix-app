@@ -10,7 +10,7 @@ const Register = () => {
     password: "",
   });
 
-  const {createUser} = useFirebaseRequests()
+  const {createUser,signUpProvider} = useFirebaseRequests()
   const handleChange = (e) =>
     setInfo({ ...info, [e.target.name]: e.target.value });
 
@@ -81,7 +81,7 @@ const Register = () => {
               <button
                 className="flex justify-between text-center items-center btn-danger"
                 type="button"
-                onClick={() => ""}
+                onClick={() => signUpProvider()}
               >
                 Continue with Google
                 <GoogleIcon color="currentColor" />
