@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import Navbar from "../components/Navbar";
 import "./globals.css";
 import { Providers } from "@/redux/provider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -16,6 +18,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
   <Navbar/>
         {children}
+        <ToastContainer />
       </body>
     </html>
  </Providers>
