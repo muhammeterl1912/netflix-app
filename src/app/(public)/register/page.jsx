@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import GoogleIcon from "/public/icons/GoogleIcon";
-
+import useFirebaseRequests from "@/services/useFirebaseRequests";
 const Register = () => {
   const [info, setInfo] = useState({
     firstName: "",
@@ -10,6 +10,7 @@ const Register = () => {
     password: "",
   });
 
+  const {createUser} = useFirebaseRequests()
   const handleChange = (e) =>
     setInfo({ ...info, [e.target.name]: e.target.value });
 
@@ -17,6 +18,7 @@ const Register = () => {
     e.preventDefault();
     const { firstName, lastName, email, password } = info;
     const displayName = `${firstName} ${lastName}`;
+    createUser(email,password,displayName)
     // email, password, displayName
     // console.log({ info });
   };

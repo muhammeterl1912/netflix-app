@@ -9,8 +9,8 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "@/auth/firebase";
-import { useEffect, useState } from "react";
+import { auth } from "./firebaseAuth";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
   toastErrorNotify,
@@ -22,6 +22,10 @@ import { useDispatch } from "react-redux";
 const useFirebaseRequests = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    userObserver();
+  }, []);
   const createUser = async (email, password, displayName) => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
