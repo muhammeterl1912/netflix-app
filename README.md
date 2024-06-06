@@ -1,4 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Netflix-App
+
+![chrome-capture-2024-6-6](https://github.com/muhammeterl1912/netflix-app/assets/118777871/5b9b15e7-9760-4bdc-bd41-a09a8ae209b9)
+
+## Overview
+
+The Netflix-App is a clone of Netflix, built using Next.js, Firebase for authentication, Redux Toolkit for state management, and the TMDB API to fetch and interact with movie data. The app is styled using Tailwind CSS and leverages Next.js's capability for both Client-Side Rendering (CSR) and Server-Side Rendering (SSR).
+
+## Live Demo
+
+Check out the live demo [here](https://netflix-app-theta-ten.vercel.app/).
+
+## Features
+
+- **User Authentication**: Secure authentication using Firebase Auth.
+- **State Management**: Efficient state management using Redux Toolkit.
+- **Movie Data**: Interaction with the TMDB API to fetch movie details.
+- **Responsive Design**: Fully responsive design using Tailwind CSS.
+- **Rendering**: Utilizes Next.js's CSR and SSR for optimized performance and SEO.
+
+## Technologies Used
+
+- **Next.js**: For server-side rendering, client-side rendering, and overall framework.
+- **Firebase**: For authentication services.
+- **Redux Toolkit**: For state management.
+- **TMDB API**: For fetching movie data.
+- **Tailwind CSS**: For styling the components.
+
 
 ## Getting Started
 
@@ -13,24 +40,3 @@ pnpm dev
 # or
 bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
