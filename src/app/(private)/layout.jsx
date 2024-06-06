@@ -14,7 +14,7 @@ const PrivateLayout = ({ children }) => {
     }
   }, [currentUser]);
 
-  return <div>{children}</div>;
+  return <div>{currentUser && children}</div>;
 };
 
 export default PrivateLayout;
