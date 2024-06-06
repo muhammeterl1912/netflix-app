@@ -52,6 +52,7 @@ const useFirebaseRequests = () => {
     signOut(auth);
     dispatch(clearCurrentUser());
     toastSuccessNotify("Logged out successfully!");
+    router.push("/login")
   };
   const userObserver = () => {
     onAuthStateChanged(auth, (currentUser) => {

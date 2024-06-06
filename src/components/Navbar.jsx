@@ -9,6 +9,9 @@ import {
 } from "@headlessui/react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import useFirebaseRequests from "@/services/useFirebaseRequests";
+import { toastWarnNotify } from "../helpers/toastNotify";
+import { useSelector } from "react-redux";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -16,7 +19,8 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const [showBackground, setShowBackground] = useState(false);
-  const [currentUser, setCurrentUser] = useState(true);
+  const { currentUser } = useSelector((user) => user.user);
+  const { logOut } = useFirebaseRequests();
   useEffect(() => {
     const handleScroll = () => {
       // console.log(window.scrollY);
@@ -77,36 +81,46 @@ export default function Navbar() {
                 leaveTo="transform opacity-0 scale-95"
               >
                 <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <MenuItem>
-                    {({ focus }) => (
-                      <Link
-                        href="/register"
-                        className={classNames(
-                          focus ? "bg-gray-100" : "",
-                          "block px-4 py-2 text-sm text-gray-700"
+                  {!currentUser && (
+                    <>
+                   
+                      <MenuItem>
+                        {({ focus }) => (
+                          <Link
+                            href="/register"
+                            className={classNames(
+                              focus ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
+                          >
+                            Register
+                          </Link>
                         )}
-                      >
-                        Register
-                      </Link>
-                    )}
-                  </MenuItem>
-                  <MenuItem>
-                    {({ focus }) => (
-                      <Link
-                        href="/login"
-                        className={classNames(
-                          focus ? "bg-gray-100" : "",
-                          "block px-4 py-2 text-sm text-gray-700"
+                      </MenuItem>
+                      <MenuItem>
+                        {({ focus }) => (
+                          <Link
+                            href="/login"
+                            className={classNames(
+                              focus ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
+                          >
+                            Login
+                          </Link>
                         )}
-                      >
-                        Login
-                      </Link>
-                    )}
-                  </MenuItem>
+                      </MenuItem>
+                    </>
+                  )}
                   <MenuItem>
                     {({ focus }) => (
                       <Link
-                        href="/profile"
+                        href={currentUser ? "/profile":""}
+                        onClick={() => {
+                          if (!currentUser) {
+                            toastWarnNotify("User not logged in");
+                          }
+                        }}
                         className={classNames(
                           focus ? "bg-gray-100" : "",
                           "block px-4 py-2 text-sm text-gray-700"
@@ -116,18 +130,22 @@ export default function Navbar() {
                       </Link>
                     )}
                   </MenuItem>
-                  <MenuItem>
-                    {({ focus }) => (
-                      <span
-                        className={classNames(
-                          focus ? "bg-gray-100" : "",
-                          "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
-                        )}
-                      >
-                        Log-out
-                      </span>
-                    )}
-                  </MenuItem>
+
+                  {currentUser && (
+                    <MenuItem>
+                      {({ focus }) => (
+                        <span
+                          className={classNames(
+                            focus ? "bg-gray-100" : "",
+                            "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
+                          )}
+                          onClick={logOut}
+                        >
+                          Log-out
+                        </span>
+                      )}
+                    </MenuItem>
+                  )}
                 </MenuItems>
               </Transition>
             </Menu>

@@ -1,17 +1,22 @@
 import React from "react";
-import MovieList from "./MovieList";
-import { getMovies } from "@/helpers/movieFunctions";
 
-const MovieSection = async ({ title, type }) => {
-  const movies = await getMovies(type);
+const VideoSection = ({ videoKey }) => {
   return (
-    <div className="mb-4">
-      <p className="text-white text-md md:text-xl lg:text-2xl font-semibold mb-4">
-        {title}
-      </p>
-      <MovieList movies={movies} />
+    <div className="w-10/12 lg:w-full mx-auto">
+      <div
+        className="embed-responsive embed-responsive-16by9 relative w-full overflow-hidden"
+        style={{ paddingTop: "50%" }}
+      >
+        <iframe
+          className="embed-responsive-item absolute top-0 right-0 bottom-0 left-0 h-full w-full"
+          src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+          allowFullScreen
+        ></iframe>
+      </div>
     </div>
   );
 };
 
-export default MovieSection;
+export default VideoSection;

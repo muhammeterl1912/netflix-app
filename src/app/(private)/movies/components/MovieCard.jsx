@@ -14,7 +14,6 @@ const MovieCard = ({ poster_path, vote_average, id }) => {
       className="w-40 h-[240px] relative cursor-pointer "
       onClick={() => router.push("/movies/" + id)}
     >
-    
       <Image
         src={poster_path ? IMG_API + poster_path : defaultImage}
         alt="movie-card"
