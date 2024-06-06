@@ -1,6 +1,6 @@
 import React from "react";
 import VideoSection from "./VideoSection";
-import {getVideoKey} from "@/helpers/movieFunctions"
+import { getVideoKey } from "@/helpers/movieFunctions";
 import Link from "next/link";
 import { PlayIcon } from "@heroicons/react/24/solid";
 
@@ -20,7 +20,7 @@ const HeroSection = async ({ id, title, overview }) => {
         <div className="flex items-center mt-3 md:mt-4 gap-3">
           <Link
             href={`/movies/${id}`}
-            className="bg-white rounded-md py-1 md:py-2 px-2 md:px-4 w-auto text-xs lg:text-lg font-semibold flex flex-row items-center hover:bg-neutral-300 transition"
+            className=" rounded-md py-1 md:py-2 px-2 md:px-4 w-auto text-xs lg:text-lg font-semibold flex flex-row items-center  bg-red-700 hover:bg-red-500 transition"
           >
             <PlayIcon className="w-4 md:w-7 text-black mr-1" />
             Play
